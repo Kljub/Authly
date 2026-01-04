@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Authly – Page Not Found</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- CSS -->
+  <link href="/gui/css/vendors/flatpickr.min.css" rel="stylesheet">
+  <link href="/gui/css/style.css" rel="stylesheet">
+
+  <script>
+    if (localStorage.getItem('dark-mode') === 'false' || !('dark-mode' in localStorage)) {
+      document.documentElement.classList.remove('dark');
+      document.documentElement.style.colorScheme = 'light';
+    } else {
+      document.documentElement.classList.add('dark');
+      document.documentElement.style.colorScheme = 'dark';
+    }
+  </script>
+</head>
+
+<body class="font-inter antialiased bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400">
+  <main class="flex items-center justify-center min-h-screen">
+    <div class="text-center px-4">
+      <div class="inline-flex mb-8">
+        <img class="dark:hidden" src="/gui/images/404-illustration.svg" width="176" height="176" alt="404 illustration" />
+        <img class="hidden dark:block" src="/gui/images/404-illustration-dark.svg" width="176" height="176" alt="404 illustration dark" />
+      </div>
+      <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-4">Oops! Page not found.</h1>
+      <p class="text-gray-600 dark:text-gray-400 mb-6">
+        Hmm... this page doesn’t exist or has been moved.  
+        Try going back to the dashboard.
+      </p>
+      <a href="/" class="btn bg-gray-900 text-gray-100 hover:bg-gray-800 dark:bg-gray-100 dark:text-gray-800 dark:hover:bg-white px-6 py-2 rounded-lg">
+        Back to Dashboard
+      </a>
+    </div>
+  </main>
+
+  <!-- JS -->
+  <script src="/gui/js/vendors/alpinejs.min.js" defer></script>
+  <script src="/gui/js/main.js"></script>
+</body>
+</html>

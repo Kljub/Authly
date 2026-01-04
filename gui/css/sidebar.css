@@ -1,0 +1,201 @@
+/* ============================================================================
+   SIDEBAR DESIGN – Mosaic Style by Authly
+   ============================================================================
+*/
+
+.sidebar {
+  backdrop-filter: blur(10px);
+  border-radius: 1.5rem;
+  background-color: rgba(17, 24, 39, 0.9); /* dark gray 900/90 */
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+/* Scrollbar unsichtbar */
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+.sidebar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* =======================================================================
+   SECTION TITLES
+   ======================================================================= */
+.sidebar h3 {
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  color: #6b7280; /* gray-500 */
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+/* =======================================================================
+   NAVIGATION ITEMS
+   ======================================================================= */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  list-style: none;
+}
+
+.sidebar ul li a,
+.sidebar ul li button.menu-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  color: #cbd5e1; /* gray-300 */
+  transition: all 0.25s ease;
+  background: transparent;
+  font-size: 0.875rem;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li button.menu-toggle:hover {
+  color: #c084fc; /* violet-400 */
+  background: linear-gradient(
+    to right,
+    rgba(139, 92, 246, 0.12),
+    rgba(139, 92, 246, 0.04)
+  );
+}
+
+/* =======================================================================
+   ACTIVE LINKS
+   ======================================================================= */
+.sidebar ul li a.active,
+.sidebar ul li button.menu-toggle.active {
+  color: #a78bfa; /* violet-400 */
+  background: linear-gradient(
+    to right,
+    rgba(167, 139, 250, 0.2),
+    rgba(167, 139, 250, 0.08)
+  );
+  box-shadow: inset 0 0 0 1px rgba(167, 139, 250, 0.25);
+  transition: all 0.25s ease-in-out;
+}
+
+/* Optional Glow Fix */
+.sidebar ul li a.active:hover {
+  color: #d8b4fe;
+  box-shadow:
+    0 0 14px rgba(139, 92, 246, 0.25),
+    inset 0 0 0 1px rgba(167, 139, 250, 0.3);
+}
+
+/* =======================================================================
+   ICONS
+   ======================================================================= */
+.sidebar svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  fill: currentColor;
+  opacity: 0.85;
+}
+
+/* =======================================================================
+   DROPDOWNS (Alpine.js)
+   ======================================================================= */
+.sidebar ul ul {
+  border-left: 1px solid rgba(75, 85, 99, 0.6); /* gray-700/60 */
+  margin-left: 1rem;
+  padding-left: 0.5rem;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+}
+
+.sidebar ul ul.open {
+  max-height: 500px;
+  opacity: 1;
+}
+
+/* Child-Links */
+.sidebar ul ul li a {
+  font-size: 0.8rem;
+  padding-left: 1.5rem;
+  color: #9ca3af; /* gray-400 */
+  border-radius: 0.4rem;
+}
+
+.sidebar ul ul li a:hover {
+  color: #c084fc;
+  background: rgba(139, 92, 246, 0.08);
+}
+
+/* =======================================================================
+   FIX: Alpine.js Dropdown Visibility (x-show)
+   ======================================================================= */
+.sidebar [x-show="open"] ul {
+  display: block !important;
+  max-height: none !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+  visibility: visible !important;
+  transform: none !important;
+  transition: all 0.3s ease-in-out;
+}
+
+/* =======================================================================
+   TRANSITIONS & TOGGLE ICON
+   ======================================================================= */
+.menu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.menu-toggle svg {
+  transition: transform 0.3s ease;
+}
+
+.menu-toggle.active svg {
+  transform: rotate(90deg);
+}
+
+/* =======================================================================
+   FOOTER
+   ======================================================================= */
+.sidebar .footer {
+  border-top: 1px solid rgba(55, 65, 81, 0.5);
+  color: #6b7280;
+  font-size: 0.75rem;
+  padding: 0.75rem 1rem;
+  margin-top: auto;
+}
+.sidebar .footer a {
+  color: #9ca3af;
+  transition: color 0.2s ease;
+}
+.sidebar .footer a:hover {
+  color: #c084fc;
+}
+
+/* =======================================================================
+   DARK MODE SUPPORT (optional)
+   ======================================================================= */
+html.dark .sidebar {
+  background-color: rgba(3, 7, 18, 0.9);
+  border-color: rgba(55, 65, 81, 0.5);
+}
+
+html.dark .sidebar ul li a {
+  color: #cbd5e1;
+}
+
+html.dark .sidebar ul li a:hover {
+  color: #c084fc;
+}

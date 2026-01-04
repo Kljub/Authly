@@ -1,0 +1,70 @@
+/* ==========================================================================
+   AUTHLY – SMTP Checkbox (Admin / Settings Mail) – FINAL FIX
+   - killt native checkbox UI (auch wenn andere CSS reinfunkt)
+   - verhindert riesige SVGs (globale svg rules)
+   ========================================================================== */
+
+.smtp-cb{
+  display:inline-flex;
+  align-items:center;
+  gap:.75rem;
+  cursor:pointer;
+  user-select:none;
+  position:relative;
+}
+
+/* native checkbox komplett unsichtbar + kein layout */
+.smtp-cb > input[type="checkbox"]{
+  -webkit-appearance:none !important;
+  appearance:none !important;
+  position:absolute !important;
+  opacity:0 !important;
+  width:0 !important;
+  height:0 !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  outline:0 !important;
+  pointer-events:none !important;
+}
+
+/* box */
+.smtp-cb .smtp-box{
+  width:20px !important;
+  height:20px !important;
+  min-width:20px !important;
+  min-height:20px !important;
+  border-radius:6px !important;
+  border:1px solid rgba(107,114,128,.9) !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  overflow:hidden !important;
+  background:transparent !important;
+  transition:all .15s ease !important;
+}
+
+/* svg hard clamp (gegen globale svg { width:100% } etc.) */
+.smtp-cb .smtp-check{
+  width:14px !important;
+  height:14px !important;
+  max-width:14px !important;
+  max-height:14px !important;
+  min-width:14px !important;
+  min-height:14px !important;
+  display:block !important;
+  opacity:0 !important;
+  color:#fff !important;
+  transform:none !important;
+}
+
+/* checked -> lila */
+.smtp-cb > input[type="checkbox"]:checked + .smtp-box{
+  background:#7c3aed !important;
+  border-color:#7c3aed !important;
+}
+
+/* checked -> check sichtbar */
+.smtp-cb > input[type="checkbox"]:checked + .smtp-box .smtp-check{
+  opacity:1 !important;
+}

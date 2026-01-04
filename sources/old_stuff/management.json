@@ -1,0 +1,225 @@
+{
+  "meta": {
+    "name": "Authly Management",
+    "version": "1.0",
+    "theme": "mosaic-dark",
+    "author": "Authly Team"
+  },
+
+  "layout": {
+
+    "sidebar": {
+      "title": "Home",
+      "editable": true,
+      "items": [
+        {
+          "title": "Dashboard",
+              "href": "/dashboard/",
+              "icon_var": "ico_leistungs",
+              "editable": true
+        },
+        {
+          "title": "Downloads",
+          "icon_var": "ico_conneciton",
+          "editable": true,
+          "children": [
+            {
+              "title": "C#",
+              "href": "../sources/Ressources/c%23.zip",
+              "icon_var": "ico_checklist",
+              "editable": true
+            },
+            {
+              "title": "C++",
+              "href": "../sources/Ressources/c++.zip",
+              "icon_var": "ico_checklist",
+              "editable": true
+            },
+            {
+              "title": "Java",
+              "href": "../sources/Ressources/java.zip",
+              "icon_var": "ico_checklist",
+              "editable": true
+            },
+            {
+              "title": "Python",
+              "href": "../sources/Ressources/php.zip",
+              "icon_var": "ico_checklist",
+              "editable": true
+            },
+            {
+              "title": "PHP",
+              "href": "../sources/Ressources/python.zip",
+              "icon_var": "ico_checklist",
+              "editable": true
+            }
+          ]
+        },
+        {
+          "title": "Tools",
+          "icon_var": "ico_check",
+          "editable": true,
+          "children": [
+            {
+              "title": "SSL Cert",
+              "href": "../dashboard/validate.php",
+              "icon_var": "ico_checklist",
+              "editable": true
+            }
+          ]
+        },
+        {
+          "title": "Discord",
+          "href": "https://discord.gg/nFq8pjQjQw",
+          "icon_var": "ico_Onboard",
+          "editable": true
+        }
+      ]
+    },
+
+    "management": {
+      "title": "Management",
+      "editable": true,
+      "items": [
+        {
+          "title": "Overview",
+          "href": "/dashboard/management.php",
+          "icon_var": "ico_circle",
+          "editable": true
+        },
+        {
+          "title": "Users",
+          "href": "/management/user.php",
+          "icon_var": "ico_Onboard",
+          "editable": true
+        },
+        {
+          "title": "Tokens",
+          "href": "/management/tokens.php",
+          "icon_var": "ico_checklist",
+          "editable": true
+        },
+        {
+          "title": "Variables",
+          "href": "/management/vars.php",
+          "icon_var": "ico_pen",
+          "editable": true
+        },
+        {
+          "title": "Files",
+          "href": "/management/files.php",
+          "icon_var": "ico_components",
+          "editable": true
+        },
+        {
+          "title": "Logs",
+          "href": "/management/logs.php",
+          "icon_var": "ico_components",
+          "editable": true
+        },
+        {
+          "title": "Settings",
+          "href": "/management/settings.php",
+          "icon_var": "ico_components",
+          "editable": true
+        }
+      ]
+    },
+
+    "more": {
+      "title": "Admin",
+      "editable": true,
+      "roles": ["admin"],
+      "items": [
+        {
+          "title": "Server",
+          "icon_var": "ico_Onboard",
+          "editable": true,
+          "children": [
+            {
+              "title": "Mail",
+              "href": "/admin/settings-mail.php",
+              "icon_var": "ico_circle",
+              "editable": true
+            },
+            {
+              "title": "Sign Up",
+              "href": "/register/",
+              "icon_var": "ico_checklist",
+              "editable": true
+            }
+          ]
+        },
+        {
+          "title": "Roles",
+          "icon_var": "ico_Onboard",
+          "editable": true,
+          "children": [
+            {
+              "title": "Start",
+              "href": "/onboarding/",
+              "icon_var": "ico_pen",
+              "editable": true
+            }
+          ]
+        },
+        {
+          "title": "Webseite",
+          "icon_var": "ico_Onboard",
+          "editable": true,
+          "children": [
+            {
+              "title": "Start",
+              "href": "/onboarding/",
+              "icon_var": "ico_pen",
+              "editable": true
+            }
+          ]
+        },
+        {
+          "title": "Users",
+          "icon_var": "ico_components",
+          "editable": true,
+          "children": [
+            {
+              "title": "UI Kit",
+              "href": "/components/ui.php",
+              "icon_var": "ico_components",
+              "editable": true
+            },
+            {
+              "title": "Tables",
+              "href": "/components/tables.php",
+              "icon_var": "ico_check",
+              "editable": true
+            }
+          ]
+        }
+        
+      ]
+    }
+
+  },
+
+  "roles": {
+    "admin": {
+      "access": ["*"],
+      "dashboard_widgets": [
+        "system_stats",
+        "user_activity",
+        "revenue_chart"
+      ]
+    },
+    "user": {
+      "access": [
+        "/dashboard/",
+        "/messages/",
+        "/tasks/"
+      ],
+      "dashboard_widgets": [
+        "personal_tasks",
+        "quick_links"
+      ]
+    }
+  }
+}

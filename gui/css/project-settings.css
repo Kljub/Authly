@@ -1,0 +1,215 @@
+/* ============================================================================
+   Authly – Project Settings CSS
+   PFAD: /gui/css/project-settings.css
+   ============================================================================ */
+
+.icon-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  cursor: pointer;
+}
+
+.icon-btn:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.12);
+}
+
+.readonly-lock { padding-right: 56px; }
+
+.section-title {
+  margin-top: 22px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Checkbox Cards */
+.check-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .check-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.check-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(17,24,39,0.6);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ============================================================================
+   Custom Checkbox – lila Haken (nicht nur Umrandung)
+   ============================================================================ */
+.authly-check {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #6b7280;
+  border-radius: 5px;
+  background-color: transparent;
+  cursor: pointer;
+  display: inline-grid;
+  place-content: center;
+}
+
+.authly-check:hover {
+  border-color: rgba(167,139,250,0.75); /* violet-300 */
+}
+
+.authly-check:checked {
+  border-color: rgba(167,139,250,1);
+  background-color: rgba(255,255,255,0.06);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 6L9 17l-5-5' fill='none' stroke='%23A78BFA' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 14px 14px;
+}
+
+.authly-check:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(167,139,250,0.25);
+}
+.authly-check:checked::before {
+  content: "✓";
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+/* =====================================================================
+   Authly – Search Input (Dashboard Style)
+   ===================================================================== */
+
+/* Authly Search Input (Screenshot Style) */
+input.authly-search {
+  -webkit-appearance: none;
+  appearance: none;
+
+  height: 44px;
+  border-radius: 16px;
+
+  color: rgba(226,232,240,0.95) !important;
+  background: linear-gradient(180deg, rgba(13,18,32,0.95), rgba(9,13,24,0.95)) !important;
+  border: 1px solid rgba(148,163,184,0.18) !important;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    inset 0 -12px 24px rgba(0,0,0,0.45),
+    0 10px 28px rgba(0,0,0,0.35) !important;
+
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+input.authly-search::placeholder {
+  color: rgba(148,163,184,0.55) !important;
+}
+
+input.authly-search:hover {
+  border-color: rgba(148,163,184,0.28) !important;
+}
+
+input.authly-search:focus {
+  outline: none !important;
+  border-color: rgba(167,139,250,0.55) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    inset 0 -12px 24px rgba(0,0,0,0.45),
+    0 0 0 3px rgba(167,139,250,0.18),
+    0 10px 28px rgba(0,0,0,0.35) !important;
+}
+/* ==========================================================================
+   AUTHLY – SMTP Checkbox (Admin / Settings Mail)
+   ========================================================================== */
+
+/* Wrapper */
+.smtp-enabled-row {
+  display: flex;
+  align-items: center;
+}
+
+/* Label */
+.smtp-cb {
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+/* Native Checkbox KOMPLETT entfernen */
+.smtp-cb > input[type="checkbox"] {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+
+  position: absolute !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Custom Box */
+.smtp-box {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+
+  border-radius: 6px;
+  border: 1px solid rgba(107,114,128,.9); /* gray-500 */
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+  overflow: hidden;
+  transition: all .15s ease;
+}
+
+/* Check Icon */
+.smtp-check {
+  width: 14px !important;
+  height: 14px !important;
+  display: block !important;
+  color: #ffffff;
+  opacity: 0;
+  transition: opacity .12s ease;
+}
+
+/* Checked State */
+.smtp-cb > input[type="checkbox"]:checked + .smtp-box {
+  background: #7c3aed !important; /* violet-600 */
+  border-color: #7c3aed !important;
+}
+
+.smtp-cb > input[type="checkbox"]:checked + .smtp-box .smtp-check {
+  opacity: 1 !important;
+}
+
+/* Label Text */
+.smtp-label-text {
+  color: #e5e7eb; /* gray-200 */
+}

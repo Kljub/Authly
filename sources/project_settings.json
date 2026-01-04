@@ -1,0 +1,92 @@
+{
+  "api_key": {
+    "min_length": 32,
+    "max_length": 128,
+    "allowed_characters": "A-Za-z0-9",
+    "description": "API Keys müssen zwischen 32 und 128 Zeichen lang sein."
+  },
+
+  "api_secret": {
+    "min_length": 64,
+    "max_length": 256,
+    "allowed_characters": "A-Za-z0-9",
+    "description": "API Secrets müssen zwischen 64 und 256 Zeichen lang sein."
+  },
+
+  "project_name": {
+    "min_length": 3,
+    "max_length": 32,
+    "allowed_characters": "A-Za-z0-9 _-",
+    "description": "Projektname darf Buchstaben, Zahlen, Leerzeichen, Unterstriche und Bindestriche enthalten."
+  },
+
+  "version": {
+    "format": "^[0-9]+\\.[0-9]+(\\.[0-9]+)?$",
+    "example": "1.0 oder 1.0.3",
+    "description": "Versionsnummern müssen im Format X.Y oder X.Y.Z sein."
+  },
+
+  "download_link": {
+    "must_be_https": true,
+    "max_length": 255,
+    "description": "Wenn vorhanden, muss der Download-Link mit HTTPS beginnen."
+  },
+
+  "session_expire": {
+    "min": 1,
+    "max": 50,
+    "default": 15
+  },
+
+  "security": {
+    "kill_switch_default": false,
+    "hwid_default": true
+  },
+
+  "tokens": {
+    "min_length": 16,
+    "max_length": 128,
+
+    "allowed_characters": "A-Z0-9",
+    "allowed_description": "Erlaubt sind Großbuchstaben A-Z und Zahlen 0-9.",
+
+    "auto_generate_default": true,
+    "auto_generate_length": 32,
+    "must_be_unique": true,
+
+    "default_rank": 0,
+    "allowed_ranks": [0, 1, 2, 3],
+
+    "default_days": 30,
+    "max_days": 365,
+
+    "formats": {
+      "normal": {
+        "name": "Normal",
+        "mask": "XXXXX-XXXXX-XXXXX-XXXXX",
+        "description": "Standard Token Format mit 4 Blöcken."
+      },
+      "normal_big": {
+        "name": "Big Normal",
+        "mask": "XXXXX-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX",
+        "description": "Längeres Token-Format mit 6 Blöcken."
+      },
+      "guid": {
+        "name": "GUID",
+        "mask": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+        "description": "GUID-ähnliche Struktur."
+      },
+      "short": {
+        "name": "Short",
+        "mask": "XXXX-XXXX-XXXX",
+        "description": "Kurzes Token mit 3 Blöcken."
+      },
+      "custom": {
+        "name": "Custom Mask",
+        "mask": "XXXXX-XXXX-XXXX-XXXX",
+        "editable": true,
+        "description": "Benutzerdefinierte Maske (X = zufälliges Zeichen)."
+      }
+    }
+  }
+}

@@ -1,0 +1,240 @@
+/*
+==============================================================================
+Authly Installer Stylesheet
+==============================================================================
+Pfad: /gui/css/install.css
+Erstellt für: /install/index.php
+Autor: Authly Framework Setup
+Version: 1.0
+==============================================================================
+*/
+
+:root {
+    --primary: #4f46e5;
+    --secondary: #6d28d9;
+    --text-light: #ffffff;
+    --text-dark: #1f1f1f;
+    --bg-blur: rgba(255, 255, 255, 0.1);
+    --radius: 20px;
+    --shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Container */
+.setup-box {
+    background: var(--bg-blur);
+    backdrop-filter: blur(8px);
+    padding: 50px 70px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    max-width: 520px;
+    width: 90%;
+    transition: all 0.3s ease;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.setup-box:hover {
+    transform: translateY(-5px);
+}
+
+.setup-box h1 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.setup-box p {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 18px;
+    line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   Forms (Inputs, Labels, Notes)
+-------------------------------------------------------------------------- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 18px;
+    width: 100%;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input:not([type]) {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(0,0,0,0.18);
+    color: var(--text-light);
+    font-size: 1rem;
+    outline: none;
+    transition: all .15s ease;
+}
+
+input::placeholder {
+    color: rgba(255,255,255,0.65);
+}
+
+input:focus {
+    border-color: rgba(255,255,255,0.35);
+    box-shadow: 0 0 0 3px rgba(79,70,229,0.25);
+    background: rgba(0,0,0,0.22);
+}
+
+/* Checkbox row */
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    user-select: none;
+    margin-top: 4px;
+}
+
+.checkbox-row input[type="checkbox"] {
+    width: auto;
+    transform: scale(1.05);
+}
+
+/* Small helper text */
+.small {
+    opacity: .9;
+    font-size: .95rem;
+    margin-top: 0;
+    text-align: center;
+}
+
+/* Notes / alerts */
+.note {
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.10);
+    margin-top: 12px;
+}
+
+.success {
+    color: #4ade80;
+    font-weight: 600;
+    margin-top: 10px;
+    text-align: center;
+}
+.error {
+    color: #f87171;
+    font-weight: 600;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Button row */
+.row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+/* Button */
+.btn {
+    background: #fff;
+    color: var(--primary);
+    border: none;
+    padding: 14px 40px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #f1f1f1;
+    transform: scale(1.05);
+}
+
+/* Secondary/Test buttons */
+.btn-secondary {
+    background: rgba(255,255,255,0.30);
+    color: #fff;
+}
+.btn-secondary:hover {
+    background: rgba(255,255,255,0.36);
+}
+
+.btn-test {
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+}
+.btn-test:hover {
+    background: rgba(255,255,255,0.24);
+}
+
+button[disabled] {
+    opacity: .55;
+    cursor: not-allowed;
+    filter: grayscale(0.3);
+}
+
+/* Footer */
+footer {
+    position: absolute;
+    bottom: 25px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .setup-box {
+        padding: 35px 25px;
+    }
+    .setup-box h1 {
+        font-size: 1.8rem;
+    }
+    .btn {
+        width: 100%;
+        font-size: 1rem;
+        padding: 12px;
+    }
+}
+/* FIX: Installer Inputs dürfen niemals inline sein */
+.setup-box form input {
+    display: block;
+    width: 100% !important;
+}
+.checkbox-row {
+    width: 100%;
+    justify-content: flex-start;
+}
